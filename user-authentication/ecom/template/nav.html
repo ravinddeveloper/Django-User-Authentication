@@ -1,0 +1,145 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+  <title >{% block title %}{% endblock title %}</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">    
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+   
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+{% block style %}{% endblock style %}
+ 
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1 style="margin:0;background-image:url({% static 'assets/img/back.gif' %});background-size:cover;background-clip:text;-webkit-background-clip: text;color: transparent; "><a href="/">{% block company_name %}{% endblock company_name %}</a></h1>
+        <!-- <a href="index.html"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto {% if request.path == '/' %} active {% endif %}" href="/">Home</a></li>
+          <li><a class="nav-link scrollto {% if request.path == '/about-us/' %} active {% endif %}" href="/about-us/">About</a></li>
+          <li><a class="nav-link scrollto {% if request.path == '/up-comming-events/' %} active {% endif %}" href="/up-comming-events/">Events</a></li>
+          <li><a class="nav-link scrollto {% if request.path == '/Available-batch/' %} active {% endif %}" href="/Available-batch/">Batches</a></li>
+          <li><a class="nav-link scrollto {% if request.path == '/our-team/' %} active {% endif %}" href="/our-team/">Team</a></li>
+          <li><a class="nav-link scrollto {% if request.path == '/contact-us/' %} active {% endif %}" href="/contact-us/">Contact Us</a></li>
+          <li class="dropdown"><a href="#"><span>others</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Career</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">ttt</a></li>
+              <li><a href="#">iiiii</a></li>
+              <li><a href="#">FeedBack</a></li>
+            </ul>
+          </li>
+          {% if user.username %}
+          <button type="button" class="nav-link scrollto bg-danger p-3 m-2 text-white" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" >
+            <i class="fa-solid fa-cart-shopping"></i> 
+             Cart (<span id="cart">0</span>)
+          </button>
+          <li><a class="nav-link scrollto" href="/account/logout/">Logout</a></li>
+          <li><a class="getstarted scrollto" href="">{{user.username}}</a></li>
+          {% else %}
+          <li><a class="getstarted scrollto" href="/account/signup/">signup</a></li>
+          <li><a class="getstarted scrollto" href="/account/login/">Login</a></li>
+          {% endif %}
+          
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  
+
+          {% block signup_from %}
+          
+          {% endblock signup_from %}
+
+    {% comment %} <div class="" style="text-align: center;">
+      <h1 style="font-family:Arial, Helvetica, sans-serif;margin:0;background-image:url({% static 'assets/img/back.gif' %});background-size:cover;background-clip:text;-webkit-background-clip: text;color: transparent; ">D-Company</h1></br>
+      <h3 style="font-family:Arial, Helvetica, sans-serif;margin:0;background-image:url({% static 'assets/img/back.gif' %});background-size:cover;background-clip:text;-webkit-background-clip: text;color: transparent; ">Dance Studio </h3>
+    </div> {% endcomment %}
+<!-- ======= Footer ======= -->
+
+<footer id="footer" data-aos="fade-up">
+    <div class="container ">
+      <div class="row d-flex align-items-center">
+        <div class="col-lg-6 text-lg-left text-center">
+          <div class="copyright">
+            &copy; Copyright <strong>{% block company_name_footer %}{% endblock company_name_footer %}</strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+           
+            Designed by <a href="https://bootstrapmade.com/">{% block designer %}{% endblock designer %}</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+            <a href="#intro" class="scrollto">Home</a>
+            <a href="#about" class="scrollto">About</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+  
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+{% block script %}
+
+{% endblock script %}
+</body>
+
+</html>
